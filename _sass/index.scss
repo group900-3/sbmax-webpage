@@ -2,20 +2,41 @@
   background: #3157e1;
   color: white;
   .width_control {
-    width: 1440px;
+    width: 100%;
+    max-width: 1440px;
     position: relative;
     margin: 0 auto;
     padding: 60px;
     box-sizing: border-box;
+    @include mobile {
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .intro {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
   }
   .large {
     margin: 0;
     font-size: 58px;
+    @include mobile {
+      text-align: center;
+      font-size: 34px;
+    }
   }
   .desc {
     font-size: 14px;
     margin: 0;
     line-height: 2;
+    margin-top: 24px;
+    @include mobile {
+      font-size: 12px;
+      text-align: center;
+    }
   }
   .section_1 {
     background-image: url(../image/grid.png);
@@ -25,20 +46,52 @@
       padding: 30px 60px;
       display: flex;
       align-items: center;
+      @include mobile {
+        padding: 32px;
+        flex-direction: column;
+      }
     }
     .intro {
       img {
         height: 150px;
         object-fit: contain;
         margin-bottom: 20px;
+        @include mobile {
+          height: 150px;
+          margin-bottom: 32px;
+        }
       }
     }
     .video {
       flex-grow: 1;
       display: flex;
       justify-content: center;
+      @include mobile {
+        margin-top: 32px;
+      }
       img {
-        border-radius: 14px;
+        width: 540px;
+        @include mobile {
+          width: 100%;
+        }
+        object-fit: contain;
+      }
+    }
+    .mobile_dl {
+      display: none;
+      @include mobile {
+        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-top:24px;
+        img {
+          height: 40px;
+          &:first-child {
+            margin-right: 16px;
+          }
+        }
       }
     }
   }
@@ -49,11 +102,23 @@
       height: 380px;
       display: flex;
       justify-content: flex-end;
+      @include mobile {
+        height: auto;
+        flex-direction: column;
+      }
       img {
         position: absolute;
         top: 50%;
         left: -120px;
         transform: translateY(-50%);
+        @include mobile {
+          position: initial;
+          top: 0;
+          transform: none;
+          max-width: 340px;
+          width: 100%;
+          margin-bottom: 32px;
+        }
       }
       .intro {
         box-sizing: border-box;
@@ -67,8 +132,14 @@
   .section_3 {
     display: flex;
     align-items: stretch;
+    @include mobile {
+      display: initial;
+    }
     & > div {
       width: 50%;
+      @include mobile {
+        width: auto;
+      }
     }
     .box {
       max-width: 720px;
@@ -77,26 +148,49 @@
       align-items: center;
       margin: 50px 0 60px 0;
       text-align: center;
+      @include mobile {
+        padding: 32px;
+      }
     }
     .characters {
       & > .box {
         margin-left: auto;
+        @include mobile {
+          margin: 0 auto;
+        }
       }
       background: url(../image/seamless.png);
       img {
         height: 520px;
         transform: rotate(-4deg);
         margin-bottom: 36px;
+        @include mobile {
+          width: 100%;
+          height: auto;
+          max-width: 340px;
+          width: 100%;
+          margin-bottom: 32px;
+        }
       }
     }
     .editor {
       & > .box {
         margin-right: auto;
+        @include mobile {
+          margin: 0 auto;
+        }
       }
       background: url(../image/grid.png);
       img {
         height: 520px;
         margin-bottom: 36px;
+        @include mobile {
+          height: auto;
+          transform: rotate(8deg);
+          max-width: 150px;
+          width: 100%;
+          margin-bottom: 32px;
+        }
       }
     }
   }
@@ -107,10 +201,20 @@
       justify-content: space-around;
       align-items: center;
       margin-top: 60px;
+      @include mobile {
+        display: block;
+        margin-top: 32px;
+      }
       .item {
         display: flex;
         flex-direction: column;
         align-items: center;
+        @include mobile {
+          margin-bottom: 32px;
+          &:last-child {
+            margin: 0;
+          }
+        }
         .yuanti {
           font-size: 24px;
         }
@@ -134,6 +238,12 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      @include mobile {
+        padding: 32px;
+        img {
+          display: none;
+        }
+      }
     }
     .intro {
       box-sizing: border-box;
@@ -143,6 +253,9 @@
       justify-content: space-between;
     }
     .button {
+      @include mobile {
+        margin-top: 24px;
+      }
       color: white;
       margin-top: 32px;
       font-size: 14px;

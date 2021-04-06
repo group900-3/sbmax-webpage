@@ -7,13 +7,23 @@
   box-sizing: border-box;
   align-items: center;
   justify-content: space-between;
+  @include mobile {
+    padding: 0 16px;
+    height: 44px;
+  }
   img {
     object-fit: contain;
     height: 32px;
+    @include mobile {
+      height: 24px;
+    }
   }
   .dl {
     display: flex;
     align-items: center;
+    @include mobile {
+      display: none;
+    }
     img {
       @include clickable;
     }
