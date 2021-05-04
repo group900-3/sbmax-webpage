@@ -62,19 +62,29 @@
         }
       }
     }
-    .video {
+    .video_container {
       flex-grow: 1;
       display: flex;
       justify-content: center;
       @include mobile {
         margin-top: 32px;
+        width: 100%;
       }
-      img {
+      .video {
         width: 540px;
+        position: relative;
         @include mobile {
           width: 100%;
         }
-        object-fit: contain;
+        .inner {
+          width: 100%;
+          padding-bottom: 56.2%;
+          & > * {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+          }
+        }
       }
     }
     .mobile_dl {
